@@ -33,3 +33,17 @@ Access the app by navigating to `http://localhost:3000` in your web browser.
 Visit the live demo [here](https://info-bites.netlify.app/). Check out how Info-Bites looks:
 
 <img src="https://i.postimg.cc/C1h99vW9/info-bites.png" width="800" alt="Info Bites Website Screenshot">
+
+## NOTE
+This app is currently in demo mode, which means that the data fetching from the backend (Supabase) is disabled. As a result, users will see a "There was a problem loading data" message when trying to view facts. This is intentional and meant to showcase the app's user interface and basic functionality without connecting to a live database.
+
+### How to Enable Full Functionality
+
+To enable full functionality, you'll need to:
+
+1. Set up a Supabase project and obtain your `supabaseUrl` and `supabaseKey`.
+2. Replace the placeholders in `supabase.js` with your actual Supabase credentials:
+   ```javascript
+   const supabaseUrl = "https://your-supabase-url";
+   const supabaseKey = "your-supabase-key";
+   const supabase = createClient(supabaseUrl, supabaseKey)
