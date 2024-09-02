@@ -43,15 +43,12 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [currentCategory, setCurrentCategory] = useState("all");
 
-  useEffect(
-    function () {
-      async function getFacts() {
-        setIsLoading(true);
+  useEffect(() => {
+    async function getFacts() {
+      setIsLoading(true);
 
+      if (supabase) {
         let query = supabase.from("facts").select("*");
-
-        if (currentCategory !== "all")
-          query = query.eq("category", currentCategory);
 
         const { data: facts, error } = await query
           .order("votesInteresting", { ascending: false })
@@ -59,12 +56,14 @@ function App() {
 
         if (!error) setFacts(facts);
         else alert("There was a problem loading data");
-        setIsLoading(false);
+      } else {
+        alert("This is a demo mode, and data cannot be fetched.");
       }
-      getFacts();
-    },
-    [currentCategory]
-  );
+
+      setIsLoading(false);
+    }
+    getFacts();
+  }, [currentCategory]);
 
   return (
     <>
