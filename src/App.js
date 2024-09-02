@@ -47,18 +47,14 @@ function App() {
     async function getFacts() {
       setIsLoading(true);
 
-      if (supabase) {
-        let query = supabase.from("facts").select("*");
+      let query = supabase.from("facts").select("*");
 
-        const { data: facts, error } = await query
-          .order("votesInteresting", { ascending: false })
-          .limit(1000);
+      const { data: facts, error } = await query
+        .order("votesInteresting", { ascending: false })
+        .limit(1000);
 
-        if (!error) setFacts(facts);
-        else alert("There was a problem loading data");
-      } else {
-        alert("This is a demo mode, and data cannot be fetched.");
-      }
+      if (!error) setFacts(facts);
+      else alert("There was a problem loading data");
 
       setIsLoading(false);
     }
