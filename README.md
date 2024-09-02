@@ -29,7 +29,7 @@ Info-Bites is a web app designed to share and explore interesting facts across v
    npm start
 Access the app by navigating to `http://localhost:3000` in your web browser.
 
-## Screenshots
-Check out how Info-Bites looks:
+## Demo & Screenshots
+Visit the live demo [here](https://info-bites.netlify.app/). Check out how Info-Bites looks:
 
 <img src="https://i.postimg.cc/C1h99vW9/info-bites.png" width="800" alt="Info Bites Website Screenshot">
